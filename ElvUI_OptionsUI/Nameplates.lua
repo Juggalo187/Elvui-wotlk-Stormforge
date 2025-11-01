@@ -3762,7 +3762,7 @@ E.Options.args.nameplate = {
 							name = "Distance",
 							desc = "Only load nameplates for units within this range.",
 							min = 5,
-							max = 61,
+							max = 200,
 							step = 1
 								}
 							}

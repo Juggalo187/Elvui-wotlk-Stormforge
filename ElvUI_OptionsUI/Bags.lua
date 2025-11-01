@@ -679,119 +679,43 @@ E.Options.args.bags = {
 		vendorGrays = {
 			order = 8,
 			type = "group",
-			name = L["Sell Assist"],
+			name = L["Vendor Grays"],
+			get = function(info) return E.db.bags.vendorGrays[info[#info]] end,
+			set = function(info, value) E.db.bags.vendorGrays[info[#info]] = value B:UpdateSellFrameSettings() end,
 			args = {
 				header = {
 					order = 1,
 					type = "header",
-					name = L["Sell Assistant"]
+					name = L["Vendor Grays"]
 				},
 				enable = {
 					order = 2,
 					type = "toggle",
 					name = L["Enable"],
-					desc = L["Helps sell items when visiting a Merchant."],
-					get = function() return E.db.bags.vendorGrays.enable end,
-					set = function(_, value) E.db.bags.vendorGrays.enable = value; B:UpdateSellFrameSettings() end
-				},
-				enablegreen = {
-					order = 3,
-					type = "toggle",
-					name = L["Include Greens"],
-					desc = L["Sell green items when visiting a Merchant."],
-					get = function() return E.db.bags.vendorGrays.enablegreen end,
-					set = function(_, value) E.db.bags.vendorGrays.enablegreen = value; B:UpdateSellFrameSettings() end,
-					disabled = function() return not E.db.bags.vendorGrays.enable end
-				},
-				enableblue = {
-					order = 4,
-					type = "toggle",
-					name = L["Include Blues"],
-					desc = L["Sell blue items when visiting a Merchant."],
-					get = function() return E.db.bags.vendorGrays.enableblue end,
-					set = function(_, value) E.db.bags.vendorGrays.enableblue = value; B:UpdateSellFrameSettings() end,
-					disabled = function() return not E.db.bags.vendorGrays.enable end
+					desc = L["Automatically vendor gray items when visiting a vendor."]
 				},
 				interval = {
-					order = 6,
+					order = 3,
 					type = "range",
 					name = L["Sell Interval"],
 					desc = L["Will attempt to sell another item in set interval after previous one was sold."],
 					min = 0.1, max = 1, step = 0.1,
-					get = function() return E.db.bags.vendorGrays.interval end,
-					set = function(_, value) E.db.bags.vendorGrays.interval = value; B:UpdateSellFrameSettings() end,
 					disabled = function() return not E.db.bags.vendorGrays.enable end
 				},
 				details = {
-					order = 5,
+					order = 4,
 					type = "toggle",
-					name = L["Details"],
+					name = L["Vendor Gray Detailed Report"],
 					desc = L["Displays a detailed report of every item sold when enabled."],
-					get = function() GameTooltip:ClearLines() return E.db.bags.vendorGrays.details end,
-					set = function(_, value) E.db.bags.vendorGrays.details = value; B:UpdateSellFrameSettings() end,
 					disabled = function() return not E.db.bags.vendorGrays.enable end
 				},
 				progressBar = {
-					order = 7,
+					order = 5,
 					type = "toggle",
 					name = L["Progress Bar"],
-					get = function() return E.db.bags.vendorGrays.progressBar end,
-					set = function(_, value) E.db.bags.vendorGrays.progressBar = value; B:UpdateSellFrameSettings() end,
 					disabled = function() return not E.db.bags.vendorGrays.enable end
-				},
-				weapon = {
-					order = 8,
-					type = "toggle",
-					name = L["Weapons"],
-					get = function() return E.db.bags.vendorGrays.weapon end,
-					set = function(_, value) E.db.bags.vendorGrays.weapon = value; B:UpdateSellFrameSettings() end,
-					disabled = function() return not E.db.bags.vendorGrays.enable end
-				},
-				armor = {
-					order = 9,
-					type = "toggle",
-					name = L["Armor"],
-					get = function() return E.db.bags.vendorGrays.armor end,
-					set = function(_, value) E.db.bags.vendorGrays.armor = value; B:UpdateSellFrameSettings() end,
-					disabled = function() return not E.db.bags.vendorGrays.enable end
-				},
-				sortaftersell = {
-					order = 10,
-					type = "toggle",
-					name = L["Sort Bags"],
-					get = function() return E.db.bags.vendorGrays.sortaftersell end,
-					set = function(_, value) E.db.bags.vendorGrays.sortaftersell = value; B:UpdateSellFrameSettings() end
-					-- NO disabled - works with both selling and deleting
-				},
-				sellvalueheader = {
-					order = 11,
-					type = "header",
-					name = "Sell if Value is Above"
-				},
-				gold = {
-					order = 12,
-					type = "range",
-					name = "Gold",
-					min = 0, max = 500, step = 1,
-					get = function() return E.db.bags.vendorGrays.gold end,
-					set = function(_, value) E.db.bags.vendorGrays.gold = value; B:UpdateSellFrameSettings() end,
-					disabled = function() return not E.db.bags.vendorGrays.enable end
-				},
-				silver = {
-					order = 13,
-					type = "range",
-					name = "Silver",
-					min = 0, max = 99, step = 1,
-					get = function() return E.db.bags.vendorGrays.silver end,
-					set = function(_, value) E.db.bags.vendorGrays.silver = value; B:UpdateSellFrameSettings() end,
-					disabled = function() return not E.db.bags.vendorGrays.enable end
-				},
-				spacer = {
-					order = 14,
-					type = "description",
-					name = " "
-				},
-			},
+				}
+			}
 		},
 		bagSortingGroup = {
 			order = 9,
