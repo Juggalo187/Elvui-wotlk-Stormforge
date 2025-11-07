@@ -317,7 +317,8 @@ L["silverabbrev"] = "|cffc7c7cfs|r"
 L["whispers"] = "susurra"
 L["yells"] = "grita"
 L["|cFFE30000Lua error recieved. You can view the error message when you exit combat."] = "|cFFE30000Error de Lua recibido. Podrás ver el error cuando salgas de combate."
-
+--juggalo187
+L["Mantén Shift para invertir la dirección del orden"] = true
 ----------------------------------
 L["RED_ENABLE"] = "|cFFff3333Habilitar|r"
 L["GREEN_ENABLE"] = "|cFF33ff33Habilitar|r"

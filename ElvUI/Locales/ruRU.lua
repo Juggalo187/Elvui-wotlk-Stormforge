@@ -317,7 +317,8 @@ L["silverabbrev"] = "|cffc7c7cfс|r"
 L["whispers"] = "шепчет"
 L["yells"] = "кричит"
 L["|cFFE30000Lua error recieved. You can view the error message when you exit combat."] = "|cFFE30000Обнаружена ошибка lua. Вы получите отчет о ней после завершения боя."
-
+--juggalo187
+L["Удерживайте Shift для обратной сортировки"] = true
 ----------------------------------
 L["RED_ENABLE"] = "|cFFff3333Включить|r"
 L["GREEN_ENABLE"] = "|cFF33ff33Включить|r"

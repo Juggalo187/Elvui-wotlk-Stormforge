@@ -1189,15 +1189,24 @@ function B:ContructContainerFrame(name, isBank)
 		f.sortButton:GetDisabledTexture():SetDesaturated(true)
 		f.sortButton:StyleButton(nil, true)
 		f.sortButton.ttText = L["Sort Bags"]
+		f.sortButton.ttText2 = L["Hold Shift to reverse the sort direction"]
 		f.sortButton:SetScript("OnEnter", self.Tooltip_Show)
 		f.sortButton:SetScript("OnLeave", GameTooltip_Hide)
 		f.sortButton:SetScript("OnClick", function()
-			f:UnregisterAllEvents() --Unregister to prevent unnecessary updates
+		f:UnregisterAllEvents() --Unregister to prevent unnecessary updates
 			if not f.registerUpdate then
 				B:SortingFadeBags(f, true)
 			end
-			B:CommandDecorator(B.SortBags, "bank")()
-
+			
+			-- Check if Shift is held down to reverse sort direction (opposite of setting)
+			local reverseSort = nil
+			if IsShiftKeyDown() then
+				reverseSort = not B.db.sortInverted  -- Opposite of current setting
+			end
+			E:Print("Bank Sort Button: IsShiftKeyDown = " .. tostring(IsShiftKeyDown()))
+			E:Print("Bank Sort Button: reverseSort = " .. tostring(reverseSort))
+			B:CommandDecorator(B.SortBags, "bank")(reverseSort)
+		
 			E:StartSpinnerFrame(f.holderFrame)
 		end)
 		if E.db.bags.disableBankSort then
@@ -1314,15 +1323,24 @@ function B:ContructContainerFrame(name, isBank)
 		f.sortButton:GetDisabledTexture():SetDesaturated(true)
 		f.sortButton:StyleButton(nil, true)
 		f.sortButton.ttText = L["Sort Bags"]
+		f.sortButton.ttText2 = L["Hold Shift to reverse the sort direction"]
 		f.sortButton:SetScript("OnEnter", self.Tooltip_Show)
 		f.sortButton:SetScript("OnLeave", GameTooltip_Hide)
 		f.sortButton:SetScript("OnClick", function()
-			f:UnregisterAllEvents() --Unregister to prevent unnecessary updates
+		f:UnregisterAllEvents() --Unregister to prevent unnecessary updates
 			if not f.registerUpdate then
 				B:SortingFadeBags(f, true)
 			end
-			B:CommandDecorator(B.SortBags, "bags")()
-
+			
+			-- Check if Shift is held down to reverse sort direction (opposite of setting)
+			local reverseSort = nil
+			if IsShiftKeyDown() then
+				reverseSort = not B.db.sortInverted  -- Opposite of current setting
+			end
+			E:Print("Bag Sort Button: IsShiftKeyDown = " .. tostring(IsShiftKeyDown()))
+			E:Print("Bag Sort Button: reverseSort = " .. tostring(reverseSort))
+			B:CommandDecorator(B.SortBags, "bags")(reverseSort)
+		
 			E:StartSpinnerFrame(f.holderFrame)
 		end)
 		if E.db.bags.disableBagSort then

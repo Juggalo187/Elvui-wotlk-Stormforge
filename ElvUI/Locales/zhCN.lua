@@ -1,4 +1,5 @@
--- Simplified Chinese localization file for zhCN.
+--juggalo187
+L["Hold Shift to reverse the sort direction"] = true-- Simplified Chinese localization file for zhCN.
 local E = unpack(select(2, ...)); --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
 local L = E.Libs.ACL:NewLocale("ElvUI", "zhCN")
 
@@ -317,7 +318,8 @@ L["silverabbrev"] = "|cffc7c7cf银|r"
 L["whispers"] = "密语"
 L["yells"] = "大喊"
 L["|cFFE30000Lua error recieved. You can view the error message when you exit combat."] = "|cFFE30000LUA错误已接收, 你可以在脱离战斗后检查.|r"
-
+--juggalo187
+L["按住 Shift 键反转排序方向"] = true
 ----------------------------------
 L["RED_ENABLE"] = "|cFFff3333启用|r"
 L["GREEN_ENABLE"] = "|cFF33ff33启用|r"

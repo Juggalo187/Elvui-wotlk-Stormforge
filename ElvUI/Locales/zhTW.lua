@@ -317,7 +317,8 @@ L["silverabbrev"] = "|cffc7c7cf銀|r"
 L["whispers"] = "密語"
 L["yells"] = "大喊"
 L["|cFFE30000Lua error recieved. You can view the error message when you exit combat."] = "|cFFE30000接收到了Lua錯誤, 你可以在脫離戰鬥後檢查.|r"
-
+--juggalo187
+L["按住 Shift 鍵反轉排序方向"] = true
 ----------------------------------
 L["RED_ENABLE"] = "|cFFff3333啟用|r"
 L["GREEN_ENABLE"] = "|cFF33ff33啟用|r"
